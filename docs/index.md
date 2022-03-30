@@ -32,4 +32,12 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 ### Support or Contact
 [Buy me a coffe](https://www.buymeacoffee.com/viczianandras?new=1)
-<img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi donations" class="kofiimg">
+
+<div class="btn-container">
+  <a class="kofi-button" title="Support me on ko-fi.com" style="background-color:#a125400;" href="https://www.buymeacoffee.com/viczianandras?new=1" target="_blank">
+    <span class="kofitext">
+      <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi donations" class="kofiimg">
+      Buy me a coffee
+    </span>
+  </a>
+</div>
