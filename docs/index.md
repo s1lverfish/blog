@@ -1,4 +1,7 @@
 ## Welcome to my blog
+
+
+{% raw %}
 $$
 \begin{align*}
 dp_{k, j} + cost(k+1,i)
@@ -8,3 +11,4 @@ dp_{k, j} + cost(k+1,i)
 &amp;= i\cdot et_i -sum_i + (-k\cdot et_i + sum_k + dp_{k, j}) \\
 \end{align*}
 $$
+{% endraw %}
