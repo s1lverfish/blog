@@ -1,2 +1,1 @@
-# blog
-Github repo for my blog
+# Andras's Blog
