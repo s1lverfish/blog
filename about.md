@@ -4,5 +4,5 @@ title: About
 permalink: /about/
 ---
 
-This blog series is about Math and other stuff.
+This is my personal blog about cometitive programming and other things I find interesting.
 
