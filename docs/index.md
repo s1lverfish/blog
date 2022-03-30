@@ -1,8 +1,6 @@
-## Welcome to GitHub Pages
+# Welcome to my blog
 
-You can use the [editor on GitHub](https://github.com/s1lverfish/blog/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This is where I'm going to be uploading my blogposts.
 
 ### Markdown
 
@@ -33,5 +31,5 @@ For more details see [Basic writing and formatting syntax](https://docs.github.c
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/s1lverfish/blog/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[Buy me a coffe](https://www.buymeacoffee.com/viczianandras?new=1)
+<img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi donations" class="kofiimg">
