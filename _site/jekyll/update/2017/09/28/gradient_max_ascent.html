@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Why is the gradient the direction of maximum ascent</title>
+  <meta name="description" content="This blog is based on a YouTube video explaining why the gradient is the direction of steepest ascent. Check it out.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/jekyll/update/2017/09/28/gradient_max_ascent.html">
+  <link rel="alternate" type="application/rss+xml" title="Musings on Math (++)" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Musings on Math (++)</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Why is the gradient the direction of maximum ascent</h1>
+    <p class="post-meta"><time datetime="2017-09-29T02:34:40+02:00" itemprop="datePublished">Sep 28, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This blog is based on a <a href="http://www.youtube.com/v/OV7c6S32IDU?version=3">YouTube video</a> explaining why the gradient is the direction of steepest ascent. Check it out.</p>
+
+<h2 id="i-why-bother">I) Why bother?</h2>
+<p>First, let’s get what might be the elephant in the room for some out of the way. Why should you read this blog? First, because it has awesome animations like figure 1 below. Don’t you want to know what’s going on in this picture?</p>
+
+<p><img src="http://localhost:4000/Downloads/GradientAscent/plane_grad_rotation_2-min.gif" alt="My helpful screenshot" /></p>
+
+<p><em>Figure 1: A plane with its gradient</em></p>
+
+<p>And second, because optimization is really, really important. I don’t care who you are, that should be true. I mean, it’s the science of finding the best. It let’s you choose your definition of “best” and then whatever that might be, tells you what you can do to achieve it. That simple.</p>
+
+<p>Also, though optimization - being a whole science and all - has a lot of depth to it, it has this basic first order technique called “gradient descent” which is really simple to understand. And it turns out, this technique actually is the most widely used in practice. In machine learning at least, as the models get more and more complex, using complex optimization algorithms becomes harder and harder. So people just use gradient descent. In other words, learn gradient descent and you learn the simplest, but also most widely used technique in optimization. So, let’s understand this technique very intuitively.</p>
+
+<h2 id="ii-optimization-brass-tacks">II) Optimization brass tacks</h2>
+<p>As I mentioned in the last section, optimization is awesome. It involves taking a single number - for example, the amount of money in your bank account, or the number of bed bugs in your bed - and showing you how to make it the best it can be (if you’re like most people, high in the first case and low in the second). Let’s call this thing we’re trying to optimize <script type="math/tex">z</script>.</p>
+
+<p>And the implicit assumption here of course is that we can control the thing we want to optimize in some way. Let’s say it depends on some variable (say <script type="math/tex">\vec{x}</script>) which is in our control. So, at every value of <script type="math/tex">\vec{x}</script>, there is some value of <script type="math/tex">z</script> (and we want to find the <script type="math/tex">\vec{x}</script> that makes <script type="math/tex">z</script> the best).</p>
+
+<p>There is probably some equation that describes this graph. Say <script type="math/tex">f(x,z) = 0</script>. But in the context of optimization, we need to express it in the form: <script type="math/tex">z = f(x)</script> (assuming the original equation is conducive to separating <script type="math/tex">o</script> from <script type="math/tex">x</script> in this way). Then, we can ask - “what value of <script type="math/tex">x</script> corresponds to the best <script type="math/tex">z</script>?”. If we have a nice continuous function, then one thing we can say for sure is that at this special <script type="math/tex">x</script>, the derivative of <script type="math/tex">z = f(x)</script> (generally denoted by <script type="math/tex">f'(x)</script>) will be zero. Now if you don’t know what a derivative is (it’s the ratio of the amount <script type="math/tex">o</script> gets perturbed to the perturbation in <script type="math/tex">x</script>, when we purposely perturb <script type="math/tex">x</script>) and why it should be zero when we achieve the best <script type="math/tex">z</script>, I’d recommend checking out <a href="http://www.youtube.com/v/llonP6K0YHQ">this video</a> that covers this in detail.</p>
+
+<h2 id="iii-what-is-a-gradient">III) What is a gradient</h2>
+
+<p>When the thing we are optimizing depends on more than one variable, the concept of the derivative extends to a gradient. So, if <script type="math/tex">o</script> from above depends on <script type="math/tex">x</script> and <script type="math/tex">y</script>, we can collect them into a single vector <script type="math/tex">\vec{u} = [x, y]</script>. So, with <script type="math/tex">o = f(x,y) = f(\vec{u})</script>, the gradient of <script type="math/tex">o</script> becomes <script type="math/tex">\Delta f(u) = [\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y} ]</script>. And just like with the derivative, we can be sure that the value of <script type="math/tex">\vec{u}</script> that will optimize <script type="math/tex">z</script> will have both components of the gradient equaling zero.</p>
+
+<p>As a side note, the gradient plays a star role in the <a href="http://fourier.eng.hmc.edu/e176/lectures/NM/node45.html">Taylors series expansion</a> of any smooth, differentiable function:</p>
+
+<p>\begin{equation} f(\vec{u}) = f(\vec{a}) + (\vec{u}-\vec{a})^T \Delta f(\vec{a}) + \dots\end{equation}</p>
+
+<p>As you can see, the first two terms of the right side only involve <script type="math/tex">u</script>, no squares, cubes or higher powers (those come up in the subsequent terms). Those first two terms also happen to be the best linear approximation of the function around <script type="math/tex">u=a</script>. We show below what this linear approximation looks like for a simple paraboloid (<script type="math/tex">z=x^2+y^2 = u^T u</script>) at various points.</p>
+
+<p><img src="http://localhost:4000/Downloads/GradientAscent/plane_to_paraboloid.gif" alt="My helpful screenshot" />
+<em>Figure 2: The best approximation of a paraboloid (pink) by a plane (purple) at various points</em></p>
+
+<h2 id="iv-linear-functions">IV) Linear functions</h2>
+<p>We saw in the previous section that gradients are quite adequately represented with linear functions. So, we will restrict the discussion to linear functions going forward. For the equation of a linear function, we only need to know where it intersects the axes.</p>
+
+<p>If we have just one dimension (the x-axis) and the intersection happens at <script type="math/tex">x=a</script>, we can describe this by</p>
+
+<p>\begin{equation}\frac{x}{a} = 1\end{equation}.</p>
+
+<p>If we have two dimensions (x-axis and y-axis) and the line intersects the x-axis at <script type="math/tex">x=a</script> and the y-axis at <script type="math/tex">y=b</script>, the equation becomes</p>
+
+<p>\begin{equation}\frac{x}{a} + \frac{y}{b} = 1\end{equation}.</p>
+
+<p>When <script type="math/tex">y=0</script>, we get <script type="math/tex">\frac{x}{a}=1</script> which is the same as the equation above.</p>
+
+<p>What if we have three dimensions? I think you know where this is going</p>
+
+<p>\begin{equation}\frac{x}{a}+\frac{y}{b}+\frac{z}{c} = 1 \end{equation}</p>
+
+<p>and so on (this by the way, is the red plane you saw in figure 1 above).</p>
+
+<p>Now, we can see that all of the equations above are symmetric in <script type="math/tex">x</script>, <script type="math/tex">y</script>, <script type="math/tex">z</script> and so on. However, in the context of optimization one of them has special status. And that is the variable we are seeking to optimize. Let’s say this special variable is <script type="math/tex">z</script>. In we want to express this as an optimization problem, we need to express the equation as <script type="math/tex">z=f(x)</script>. If we do this to equation (4), what we get is</p>
+
+<p>\begin{equation} z = c (1 - \frac{x}{a} - \frac{y}{b})\end{equation}</p>
+
+<h2 id="v-i-want-to-increase-my-linear-function-where-should-i-go">V) I want to increase my linear function. Where should I go?</h2>
+
+<p>This is the central question for this blog. You have your linear function described by equation (5) above, with <script type="math/tex">x</script> and <script type="math/tex">y</script> are in your control. You find yourself at a certain value of <script type="math/tex">x=x_0</script> and <script type="math/tex">y=y_0</script>. Let’s say for the sake of simplicity that <script type="math/tex">z=0</script> at this current point. You can take a step of 1 unit along any direction. The question becomes, in which direction should you take this step? This conundrum is expressed in figure 3 below showing the infinite directions you can possibly walk along. Each directions changes the objective function, <script type="math/tex">z</script> by a different amount. So, one of them will increase <script type="math/tex">z</script> the most while another will decrease <script type="math/tex">z</script> the most (depending on weather we want to maximize or minimize it).</p>
+
+<p>Note that if we had just one variable in our control (say <script type="math/tex">x</script>), this would have been a lot easier. There would have been only two directions to choose from (increase <script type="math/tex">x</script> or decrease <script type="math/tex">x</script>). As soon as we get to two or more free variables however, the number of choices jumps from two to <script type="math/tex">\infty</script>.</p>
+
+<p><img src="http://localhost:4000/Downloads/GradientAscent/which_direction.gif" alt="My helpful screenshot" />
+<em>Figure 3: The infinite directions we can move along. Which one should we choose?</em></p>
+
+<p>Now, we want to find the directions along which <script type="math/tex">z</script> changes the most. So let’s do the opposite (say, because we’re a little crazy?). Let’s look for the direction where <script type="math/tex">z</script> doesn’t change at all. If you look at the figure above carefully, you’ll see that this happens when the green arrow aligns with the orange line. And then if you continue staring, you might notice that the <script type="math/tex">z</script> changes the most when the green arrow is perpendicular to the orange line.</p>
+
+<p>So, it seems like that orange line can provide some insight into this problem. What is the orange line then? Well, its clearly where our plane intersects the green grid representing the x-y plane (the grid along which we can move). And what would the equation of the x-y plane be? It would be <script type="math/tex">z=0</script>. In other words, <script type="math/tex">z</script> does not change on it. So, since the orange line lies completely on the grid, it must also have <script type="math/tex">z=0</script> everywhere on it. No wonder <script type="math/tex">z</script> refuses to change when our green arrow causes us to simply move along the orange line.</p>
+
+<p>As for the equation of the orange line, it is where the equations of the plane -</p>
+
+<script type="math/tex; mode=display">\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1</script>
+
+<p>and x-y grid; <script type="math/tex">z=0</script> are satisfied simultaneously. This gives us</p>
+
+<script type="math/tex; mode=display">\frac{x}{a} + \frac{y}{b} = 1</script>
+
+<p>Now, it is clear from the equation of the orange line above that when <script type="math/tex">y=0</script>, <script type="math/tex">x=a</script>. So, the position vector of the point where it cuts the x-axis is <script type="math/tex">\vec{o_x} : [a,0]</script> (<script type="math/tex">o</script> for orange). Similarly, the point where it cuts the y-axis is <script type="math/tex">\vec{o_y} : [0,b]</script>. Now that we have the position vectors of two points on the line, we subtract them to get a vector along the line (<script type="math/tex">\vec{o}</script>).</p>
+
+<p>\begin{equation}\vec{o} = \vec{o_x} - \vec{o_y} = [a,0] - [0,b] = [a, -b]\end{equation}</p>
+
+<p>Now, if we can show that the gradient is perpendicular to this vector, we are done. That will give us some intuition around why the gradient changes <script type="math/tex">z</script> the most.</p>
+
+<h2 id="vi-gradient-of-the-plane">VI) Gradient of the plane</h2>
+<p>Applying the definition of the gradient from section III to the equation of the plane (equation (5) above) we get -</p>
+
+<p>\begin{equation}
+\frac{\partial z}{\partial x} = \frac{c}{a} \ , 
+\frac{\partial z}{\partial y} = \frac{c}{b}
+\end{equation}</p>
+
+<p>This makes the gradient:</p>
+
+<p>\begin{equation} \Delta z : [\frac{c}{a}, \frac{c}{b}]\end{equation}</p>
+
+<p>Now, we know that for two vectors to be orthogonal, their dot product must be zero. Taking the dot product or the gradient of the plane (from equation (7)) and the vector along the orange line (from equation (6)) we get,</p>
+
+<p>\begin{equation}
+(\Delta z)^T \vec{o} = [\frac{c}{a}, \frac{c}{b}] [a, -b]^T = a.\frac{c}{a} - b.\frac{c}{b} = 0
+\end{equation}</p>
+
+<p>And there we have it, the gradient is aligned with the direction perpendicular to the orange line and so, it changes <script type="math/tex">z</script> the most. It turns out that going along the gradient increases <script type="math/tex">z</script> the most while going in the opposite direction to it (note that both these directions are orthogonal to the orange line) decreases <script type="math/tex">z</script> the most.</p>
+
+<p>I’ll leave you with this visualization demonstrating how as we change the plane, the gradient continues to stubbornly point in the direction that changes it the most.</p>
+
+<p><img src="http://localhost:4000/Downloads/GradientAscent/grad_as_plane_changes.gif" alt="My helpful screenshot" /></p>
+
+<p><em>Figure 4: As we change the plane, the gradient always aligns itself with the direction that changes it the most</em></p>
+
+
+  </div>
+  
+  
+    
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = "https://ryu577.github.io/jekyll/update/2017/09/28/gradient_max_ascent.html"; // <--- use canonical URL
+this.page.identifier = "/jekyll/update/2017/09/28/gradient_max_ascent";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//github-io-2.disqus.com/embed.js'; // <--- use Disqus shortname
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Musings on Math (++)</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Musings on Math (++)
+            
+            </li>
+            
+            <li><a href="mailto:rohitpandey576 _at_ gmail">rohitpandey576 _at_ gmail</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/ryu577"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">ryu577</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/rohitpandey576"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">rohitpandey576</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I write here about Math and other topics.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  //ga('create', '', 'auto');
+  ga('create', 'UA-92632279-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  </body>
+
+</html>
