@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Consider supporting me!
-permalink: https://www.buymeacoffee.com/viczianandras?new=1
+link: https://www.buymeacoffee.com/viczianandras?new=1
 ---
