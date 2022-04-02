@@ -4,3 +4,5 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 ---
+
+[Consider supporting me](https://www.buymeacoffee.com/viczianandras?new=1)
