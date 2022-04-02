@@ -1,50 +1,49 @@
 ---
 layout: default
 ---
-<div>
 
-	<div class="home" style="float:left;width:85%">
+<div class="home" style="float:left;width:80%">
 
-	  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">Posts</h1>
 
-	  
-	  {{ content }}
 
-	  <ul class="post-list">
-		{% for post in site.posts %}
-		  <li>
-			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  {{ content }}
 
-			<h2>
-			  <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-			</h2>
-		  </li>
-		{% endfor %}
-	  </ul>
+  <ul class="post-list">
+	{% for post in site.posts %}
+	  <li>
+		<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-	  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+		<h2>
+		  <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+		</h2>
+	  </li>
+	{% endfor %}
+  </ul>
 
-	</div>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
 
-	<div style="float:left;width:15%;padding-top:20%;text-align:center;font:normal 400 14px Montserrat">
-		<h3>
-			About Me
-		</h3>
+</div>
 
-		<img alt='My photo' height='94' src='lion.jpg' width='94'\><br></img>
+<div style="float:left;width:20%;padding-top:10%;text-align:center;font:normal 400 14px Montserrat">
+	<h3>
+		About Me
+	</h3>
 
-		<a href='https://twitter.com/Andras_Viczian'>
-			András Viczián
-		</a>
+	<img alt='My photo' height='94' src='lion.jpg' width='94'\><br></img>
 
-		<div>
-			I'm a hungarian highschool student, and I love competitive programming. I decided to start a blog and Youtube channel to help others imporve.
-		</div> 
+	<a href='https://twitter.com/Andras_Viczian'>
+		András Viczián
+	</a>
 
-		<div>
-			<p>Like this blog? I&#8217;d appreciated it if you&#8217;d help support me writing more!</p>
-				<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
-				<script type='text/javascript'>kofiwidget2.init('Buy me a coffee', '#a12540', 'andrasviczian');kofiwidget2.draw();</script></div>
-		</div>
+	<div>
+		I'm a hungarian highschool student, and I love competitive programming. I decided to start a blog and Youtube channel to help others imporve.
+	</div> 
+
+	<div>
+		<p>Like this blog? I&#8217;d appreciated it if you&#8217;d help support me writing more!</p>
+			<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
+			<script type='text/javascript'>kofiwidget2.init('Buy me a coffee', '#a12540', 'andrasviczian');kofiwidget2.draw();</script></div>
 	</div>
 </div>
+
