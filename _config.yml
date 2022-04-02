@@ -14,7 +14,6 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Andras's Blog
-email: vandras2003@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   I write here about competetive programming, and other things I find interesting.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
@@ -30,8 +29,6 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
-
-#permalink: /buchbergers_algo_groebner_basis/
 
 disqus:
    shortname: github-io-2
