@@ -10,7 +10,7 @@ permalink: /about/
 
 ## Viczián András
 
-<img src="picture_of_me.jpg" width="12%" height="12%" style="border-radius:20%"/>
+<img src="picture_of_me.jpg" width="12%" height="12%" style="border-radius:10px"/>
 
 I'm a hungarian highschool student, and I love competitive programming. I decided to start a blog and Youtube channel to help others imporve.
 
