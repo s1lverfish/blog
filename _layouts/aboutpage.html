@@ -3,10 +3,6 @@ layout: default
 ---
 
 <div class="home">
-
-  <h1 class="page-heading">About Me</h1>
-
-
   {{ content }}
 	
 <div>
@@ -14,17 +10,6 @@ layout: default
 	<script type='text/javascript'>kofiwidget2.init('Buy me a coffee', '#a12540', 'andrasviczian');kofiwidget2.draw();</script></div>
 </div>
 
-  <ul class="post-list">
-	{% for post in site.posts %}
-	  <li>
-		<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-		<h2>
-		  <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-		</h2>
-	  </li>
-	{% endfor %}
-  </ul>
 </div>
 
 
