@@ -4,9 +4,9 @@ title: About Me
 permalink: /about/
 ---
 
-## About Me
+# About Me
 
-# Viczián András
+## Viczián András
 
 ![](lion.jpg)
 
