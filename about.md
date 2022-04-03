@@ -11,6 +11,6 @@ permalink: /about/
 
 I'm a hungarian highschool student, and I love competitive programming. I decided to start a blog and Youtube channel to help others imporve.
 
-<br><hr><br>
+<br> <hr> <br>
 
 #### Like this blog? I’d appreciated it if you’d help support me write more!
