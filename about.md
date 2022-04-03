@@ -13,4 +13,4 @@ I'm a hungarian highschool student, and I love competitive programming. I decide
 
 <hr>
 
-Like this blog? I’d appreciated it if you’d help support me write more!
+###### Like this blog? I’d appreciated it if you’d help support me write more!
