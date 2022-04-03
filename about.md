@@ -10,8 +10,6 @@ permalink: /about/
 
 <img src="picture_of_me.jpg" width="30%" height="30%"/>
 
-![](picture_of_me.jpg)
-
 I'm a hungarian highschool student, and I love competitive programming. I decided to start a blog and Youtube channel to help others imporve.
 
 Like this blog? I’d appreciated it if you’d help support me write more!
