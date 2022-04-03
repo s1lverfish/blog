@@ -8,7 +8,7 @@ permalink: /about/
 
 ## Viczián András
 
-![](lion.jpg)
+![](picture_of_me.jpg)
 
 I'm a hungarian highschool student, and I love competitive programming. I decided to start a blog and Youtube channel to help others imporve.
 
