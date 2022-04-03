@@ -8,7 +8,7 @@ permalink: /about/
 
 ## Viczián András
 
-<img src="https://github.com/s1lverfish/blog/blob/main/picture_of_me.jpg" width="12%" height="12%" style="border-radius:10px"/>
+<img src="blog/picture_of_me.jpg" width="12%" height="12%" style="border-radius:10px"/>
 
 ![](picture_of_me.jpg)
 
