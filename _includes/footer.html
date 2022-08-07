@@ -38,6 +38,11 @@
           <li>
             {% include icon-instagram.html username=site.instagram_username %}
           </li>
+          
+           {% if site.youtube_username %}
+          <li>
+            {% include icon-youtube.html username=site.youtube_username %}
+          </li>
           {% endif %}
         </ul>
       </div>
