@@ -7,15 +7,15 @@ permalink: /about/
 # About Me
 
 
-  <div style="float: left">
-    <img src="/picture_of_me.jpg" width="50%" height="50%" style="border-radius:10px;display:block;margin-left:auto;margin-right:auto"/>
-  </div>
-  
-  <div style="float: left">
-    <h2 style="text-align:center"> Viczián András </h2>
-    
-    I'm Andras, a hungarian teenager, and I've decided to take a gap year after highschool and travel around europe by bike. This is a blog made to document my adventures.
-  </div>
+<div style="float: left">
+  <img src="/picture_of_me.jpg" width="50%" height="50%" style="border-radius:10px;display:block;margin-left:auto;margin-right:auto"/>
+</div>
+
+<div style="float: left">
+  <h2 style="text-align:center"> Viczián András </h2>
+
+  <p>I'm Andras, a hungarian teenager, and I've decided to take a gap year after highschool and travel around europe by bike. This is a blog made to document my adventures.</p>
+</div>
 
 <br>
 <hr>
