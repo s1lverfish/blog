@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 author:
-title:
+title: Andras's blog
 description: > # this means to ignore newlines until "baseurl:"
   I'm Andras, a hungarian teenager, and I've decided to take a gap year after highschool and travel around europe by bike. This is a blog made to document my adventures.
 baseurl: "" # the subpath of your site, e.g. /blog
