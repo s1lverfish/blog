@@ -21,5 +21,5 @@ I'm Andras. In this blog I document my adventures cycling and wild camping acros
 #### Hey! Do you want to send me money? Well you can do so here:
 
 <a href="https://www.revolut.me/andrsve07">
-  <img src="/lion.jpg" width=50px" height="50px">
+  <img src="/revolut.svg" width=50px" height="50px">
 </a>
