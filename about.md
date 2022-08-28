@@ -20,4 +20,6 @@ I'm Andras. In this blog I document my adventures cycling and wild camping acros
 
 #### Hey! Do you want to send me money? Well you can do so here:
 
-![revolut.me/andrsve07](/picture_of_me.jpg)
+<a href="https://www.revolut.me/andrsve07">
+  <img src="/lion.jpg" width=50px" height="50px">
+</a>
