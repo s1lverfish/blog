@@ -12,10 +12,10 @@ permalink: /about/
 
 
 
-I'm Andras, a hungarian teenager, and I've decided to take a gap year after highschool and travel around europe by bike. This is a blog made to document my adventures.
+I'm Andras. In this blog I document my adventures cycling and wild camping across europe.
 
 <br>
 <hr>
 <br>
 
-#### Like this blog? I’d appreciated it if you’d help support me write more!
+#### Hey! Do you want to send me money? Well you can do so here:
