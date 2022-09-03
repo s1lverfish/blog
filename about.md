@@ -12,13 +12,13 @@ permalink: /about/
 
 
 
-I'm Andras. In this blog I document my adventures cycling and wild camping across europe.
+In this blog I document my adventures cycling and wild camping across europe.
 
 <br>
 <hr>
 <br>
 
-#### Hey! Do you want to send me money? Well you can do so here:
+#### Hey! Do you want to give me money? Well, you can do so here:
 
 <a href="https://www.revolut.me/andrsve07">
   <img src="/revolut.svg">
