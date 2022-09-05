@@ -13,7 +13,7 @@ permalink: /about/
 
 
 In this blog I document my adventures cycling and wild camping across europe.
-
+<!--
 <br>
 <hr>
 <br>
@@ -23,3 +23,4 @@ In this blog I document my adventures cycling and wild camping across europe.
 <a href="https://www.revolut.me/andrsve07">
   <img src="/revolut.svg">
 </a>
+-->
