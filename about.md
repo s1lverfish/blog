@@ -20,6 +20,7 @@ In this blog I document my adventures cycling and wild camping across europe.
 
 #### Hey! Do you want to give me money? Well, you can do so here:
 
+<!--
 <a href="https://www.revolut.me/andrsve07">
   <img src="/revolut.svg">
 </a>
