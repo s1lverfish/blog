@@ -6,7 +6,6 @@ permalink: /about/
 
 # About Me
 
-<h2 style="text-align:center"> Viczián András </h2>
 
 
 ![Me](/picture_of_me.jpg)
